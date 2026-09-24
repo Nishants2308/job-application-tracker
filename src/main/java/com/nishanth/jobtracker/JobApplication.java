@@ -1,12 +1,14 @@
 package com.nishanth.jobtracker;
 
 import java.time.LocalDate;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class JobApplication {
@@ -16,9 +18,12 @@ public class JobApplication {
     private Long id;
   @NotBlank(message = "Company name is required")
     private String companyName;
-  @NotBlank(message = "Job role is required")  
+  @NotBlank(message = "Job role is required") 
     private String jobRole;
+  @NotBlank(message = "Status is required")
     private String status;
+  @NotNull(message = "Applied date is required")
+
     private LocalDate appliedDate;
     private String jobLink;
     private String notes;
